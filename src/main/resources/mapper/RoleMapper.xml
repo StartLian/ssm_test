@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gessica.service02.mapper.RoleMapper">
+	<!-- <cache type="com.gessica.service05.RedisCache"> 
+		<property name="host" value="localhost"/>
+	</cache>
+	<cache-ref namespace="com.gessica.service02.mapper.RoleMapper"/> -->
+	
+	<resultMap type="com.gessica.service02.pojo.Role" id="roleMapper">
+		<result property= "id" column= "id"/>
+		<result property= "roleName" column= "role_name" jdbcType="VARCHAR" javaType="String"/>
+		<result property= "note" column= "note" jdbcType="VARCHAR" javaType="String"/>
+	</resultMap>
+	
+	
+	<sql id="roleCols">
+		id,role_name,note 
+	</sql>
+		<sql id="roleCols1">
+		${alias}.id,${alias}.role_name,${alias}.note
+	</sql>
+	<select id="getRoleBySQL" parameterType="long" resultMap="roleMapper">
+		select <include refid="roleCols"/> from t_role where id = #{id}
+	</select>
+	<select id="getRoleBySQL1" parameterType="long" resultMap="roleMapper">
+		select <include refid="roleCols1">
+			<property name="alias" value="r"/>
+		</include> from t_role r where id = #{id}
+	</select>
+	<select id = "getRoles" parameterType="map" resultType="role">
+		SELECT id,role_name as roleName,note from t_role
+		WHERE role_name LIKE CONCAT('%',#{roleName},'%') AND note LIKE CONCAT('%',#{note},'%')
+	</select>
+	<select id = "getRoleByAnnotation"  resultType="role">
+		SELECT id,role_name as roleName,note from t_role
+		WHERE role_name LIKE CONCAT('%',#{roleName},'%') AND note LIKE CONCAT('%',#{note},'%')
+	</select>
+	<select id = "getRoleByBean" parameterType="com.gessica.service05.pojo.RoleBean" resultType="role">
+		SELECT id,role_name as roleName,note from t_role
+		WHERE role_name LIKE CONCAT('%',#{roleName},'%') AND note LIKE CONCAT('%',#{note},'%')
+	</select>
+	<select id = "findByMix" resultType="role">
+		SELECT id,role_name as roleName,note from t_role
+		WHERE role_name LIKE CONCAT('%',#{params.roleName},'%') AND note LIKE CONCAT('%',#{params.note},'%')
+		limit #{page.start},#{page.limit}
+	</select>
+	<select id = "findByRowBounds" resultType="role">
+		SELECT id,role_name as roleName,note from t_role
+		WHERE role_name LIKE CONCAT('%',#{roleName},'%') AND note LIKE CONCAT('%',#{note},'%')
+	</select>
+<!-- 	useGeneratedKeys="true" keyProperty="id" -->
+	<insert id="insertRoleID" parameterType="com.gessica.service02.pojo.Role"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT into t_role(role_name,note) VALUES(#{roleName},#{note});
+	</insert>
+	<insert id="insertRoleID2" parameterType="com.gessica.service02.pojo.Role">
+		<selectKey keyProperty="id" resultType="long" order="BEFORE">
+			select if (max(id) = null , 1 ,max(id)+3) from t_role
+		</selectKey>
+		INSERT into t_role(id,role_name,note) VALUES(#{id},#{roleName},#{note});
+	</insert>
+	<insert id="insertRole" parameterType="com.gessica.service02.pojo.Role">
+		INSERT into t_role(role_name,note) VALUES(#{roleName},#{note});
+	</insert>
+	<delete id="deleteRole" parameterType="long">
+		delete from t_role where id = #{id}
+	</delete>
+	<update id="updateRole" parameterType="role">
+		update t_role set role_name = #{roleName}, note = #{note} where id = #{id}
+	</update>
+	<select id="getRole" parameterType="long" resultMap = "roleMapper" >
+		select id,role_name,note from t_role where id = #{id}
+	</select>
+		 <select id="getRole" parameterType="long" resultMap = "roleMapper" databaseId = "oracle" >
+		select id,role_name,note from t_role where 1=1 and id = #{id}
+	</select> 
+	<select id="findRoles" parameterType="string" resultMap = "roleMapper">
+		select id,role_name,note from t_role
+		where role_name like concat('%',#{roleName,jdbcType=VARCHAR ,javaType =string},'%')
+	</select>
+	<select id="findRoles2" parameterType="string" resultMap = "roleMapper">
+		select id,role_name,note from t_role
+		where note like concat('%',#{note,typeHandler=com.gessica.service01.test8.MyTypeHandler},'%')
+	</select>
+</mapper>
