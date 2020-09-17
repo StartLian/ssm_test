@@ -14,8 +14,8 @@ public class GameMain {
 		RoleServer bean = ProxyBeanFactory.getBean(roleServerImpl, roleInterceptor);
 		Role role = new Role(1L, "roleInterceptor", "roleInterceptor_test");
 		bean.printRoleinfo(role);
-//		role =null;
-//		bean.printRoleinfo(role);
+		role =null;
+		bean.printRoleinfo(role);
 		
 	}
 

@@ -15,7 +15,7 @@ public class ProxyBeanUtils implements InvocationHandler {
 		Object retObj = null;
 		interceptor.before(obj);
 		try {
-			retObj = method.invoke(method, args);
+			retObj = method.invoke(obj, args);
 		} catch (Exception e) {
 			exceptionFlag =true;
 			e.printStackTrace();
