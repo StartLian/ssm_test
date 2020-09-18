@@ -1,4 +1,4 @@
-package com.gessica.test1;
+package com.gessica.arithmetic.tree20_09;
 
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -7,8 +7,10 @@ public class BinaryTree {
 
 	public static void main(String[] args) {
 		LinkedList<Integer> linkedList = new LinkedList<Integer>();
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 5; i++) {
 			linkedList.add(i);
+			linkedList.add(i*i);
+			linkedList.add(i*(i-1));
 		}
         Node root = PrintBinaryTree.createTreeNode(linkedList);
         System.out.print("层序遍历:");

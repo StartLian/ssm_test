@@ -1,4 +1,4 @@
-package com.gessica.test1;
+package com.gessica.arithmetic.tree20_09;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -12,14 +12,23 @@ public class PrintBinaryTree {
      * @param root 要遍历的二叉树的根节点
      */
     public static void levelTraversal(Node root) {
+    	boolean flag =true;
         Queue<Node> q = new LinkedList<Node>();
         q.add(root);
         while (!q.isEmpty()) {
             Node temp = q.poll();
             if (temp != null) {
                 System.out.print(temp.value + "  ");
-                q.add(temp.left);
-                q.add(temp.right);
+//                q.add(temp.left);
+//            	q.add(temp.right);
+                flag = !flag;
+                if (flag) {
+                	q.add(temp.left);
+                	q.add(temp.right);
+				}else {
+					q.add(temp.right);
+					q.add(temp.left);
+				}
             }
         }
     }

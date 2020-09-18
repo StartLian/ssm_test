@@ -1,4 +1,4 @@
-package com.gessica.test2;
+package com.gessica.arithmetic.tree20_09_01;
 
 import java.util.LinkedList;
 import java.util.Scanner;

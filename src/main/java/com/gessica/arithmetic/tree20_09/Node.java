@@ -1,4 +1,4 @@
-package com.gessica.test1;
+package com.gessica.arithmetic.tree20_09;
 
 public class Node {
 	public int value;

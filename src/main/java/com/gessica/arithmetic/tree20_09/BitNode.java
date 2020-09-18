@@ -1,4 +1,4 @@
-package com.gessica.test1;
+package com.gessica.arithmetic.tree20_09;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -99,11 +99,11 @@ public static void main(String[] args) {
         BitNode root = new BitNode();
         int[] a = { 1, 2, 3, 0, 0, 4, 0, 0, 5, 0, 0 };
         root = createBiTree(root, a, counter);
-levelTraverse(root);
-System.out.println("");
-levelTraverse1(root);
-System.out.println("");
-int biTreeDepth = biTreeDepth(root);
-System.out.println("biTreeDepth:"+biTreeDepth);
-}
+		levelTraverse(root);
+		System.out.println("");
+		levelTraverse1(root);
+		System.out.println("");
+		int biTreeDepth = biTreeDepth(root);
+		System.out.println("biTreeDepth:"+biTreeDepth);
+		}
 }

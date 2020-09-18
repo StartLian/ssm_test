@@ -1,4 +1,4 @@
-package com.gessica.test1;
+package com.gessica.arithmetic.tree20_09;
 
 import java.util.LinkedList;
 
@@ -68,6 +68,10 @@ public class TreeNode {
         postOrderTraveral(node.rightChild);
         System.out.print(node.data+" ");
     }
+    /**
+     * 层级打印
+     * @param root
+     */
     public static void levelOrder(TreeNode root){
         LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
         queue.add(root);
