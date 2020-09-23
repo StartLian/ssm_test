@@ -30,7 +30,7 @@ public class TreeNode {
         	return null;
         }
     }
-    /**
+    /** 
      * 二叉树前序遍历   根-> 左-> 右
      * @param node    二叉树节点
      */
@@ -74,6 +74,7 @@ public class TreeNode {
      */
     public static void levelOrder(TreeNode root){
         LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.peek();
         queue.add(root);
         while(!queue.isEmpty()){
             root = queue.pop();
