@@ -3,7 +3,8 @@ package com.gessica.arithmetic.stack;
 import java.util.Deque;
 import java.util.LinkedList;
 /**
- * 最小栈：利用栈先进后出，创建辅助栈，将每一次存入的数据，与辅助栈顶数据对比，存入小值
+ * 最小栈：利用栈先进后出，创建辅助栈，将每一次存入的数据，与辅助栈顶数据对比，存入小值。0
+ * 
  * @author wanji
  *
  */
