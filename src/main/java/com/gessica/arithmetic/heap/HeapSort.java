@@ -4,8 +4,12 @@ package com.gessica.arithmetic.heap;
 import java.util.Arrays;
 
 /**
+ * https://www.cnblogs.com/chengxiao/p/6129630.html
  * Created by chengxiao on 2016/12/17.
  * 堆排序demo
+ * 先大顶堆，从len/2-1开始，到0，完成大顶堆
+ * 然后，将大顶堆堆顶放到堆尾，依次小堆
+ * 
  */
 public class HeapSort {
     public static void main(String []args){
