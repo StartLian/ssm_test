@@ -89,4 +89,52 @@ public  class Solution {
  
         return slow;     
 	}
+	/**
+	 * 二分查找
+	 * @param n
+	 * @param v
+	 * @param a
+	 * @return
+	 */
+	public int upper_bound_ (int n, int v, int[] a) {
+        // write code here
+        int i =0;
+        int j=n-1;
+        int mid =(i+j)/2;
+        //右半部分
+        while(i<=j){
+            if(a[mid]<v){
+                i=mid+1;
+                mid =(i+j)/2;
+            }else if(mid>0&&a[mid-1]>=v){//左半部分
+                j=mid-1;
+                mid =(i+j)/2;
+            }else{
+                return mid+1;
+            }
+        }
+        return n+1;
+    }
+	/**
+	 * 链表中是否存在环
+	 * 通过一个快指针，一次走两步，一个慢指针，一次走一步，总能相遇。链表相交处
+	 * @param head
+	 * @return
+	 */
+	public boolean hasCycle(ListNode head) {
+        if(head == null){
+            return false;
+        }
+        ListNode p = head;
+        ListNode q = head;
+        while(p!=null && p.next!=null){
+            p = p.next.next;
+            q = q.next;
+            if(p==q){
+                return true;
+            }
+ 
+        }
+        return false;
+    }
 }
