@@ -2,7 +2,7 @@ package com.gessica.arithmetic.tree20_09;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
+//https://www.jianshu.com/p/bf73c8d50dc2
 public class BitNode {
 	int data;
     BitNode lchild;
