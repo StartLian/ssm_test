@@ -2,9 +2,13 @@ package com.gessica.chapter11.xml.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 
+import com.gessica.chapter11.aop.verifier.RoleVerifier;
+import com.gessica.chapter11.game.pojo.Role;
+
 public class XmlAspect {
-	public void before() {
-		System.out.println("XmlAspect->before");
+	public RoleVerifier roleverifier;
+	public void before(Role role) {
+		System.out.println("XmlAspect->before->role1111:"+role.toString());
 	}
 	public void after() {
 		System.out.println("XmlAspect->after");

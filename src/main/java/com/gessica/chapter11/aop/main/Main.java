@@ -1,5 +1,6 @@
-package com.gessica.chapter11.main;
+package com.gessica.chapter11.aop.main;
 
+import org.springframework.aop.framework.ProxyFactoryBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -11,6 +12,7 @@ import com.gessica.chapter11.game.pojo.Role;
 public class Main {
 
 	public static void main(String[] args) {
+//		ProxyFactoryBean
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(AopConfig.class);
 		RoleServer bean = ctx.getBean(RoleServer.class);
 		RoleVerifier roleVerifier = (RoleVerifier) bean;
