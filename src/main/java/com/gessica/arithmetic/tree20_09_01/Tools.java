@@ -3,6 +3,12 @@ package com.gessica.arithmetic.tree20_09_01;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+
+/**
+ * 前中后、层级、深度、叶子节点个数
+ * @author wanji
+ *
+ */
 class Tools{
     public static InitBiTree createBiTree() {  //先序遍历创建二叉树
         System.out.print("请按先序次序依次输入二叉树的值，#号表示建立空树：");
@@ -86,6 +92,76 @@ class Tools{
             }
         }else {
             return 0;
+        }
+    }
+    /**
+    * 给定一个二叉树, 检查它是否是镜像对称的
+    * 例如以下是镜像对称的
+    *      1
+    *     / \
+    *    2   2
+    *   / \ / \
+    *  3  4 4  3
+    *
+    * 下面这个则不是镜像对称的
+    *      1
+    *     / \
+    *    2   2
+    *     \   \
+    *      3   3
+    *
+    * TreeNode类的定义:
+    *
+    * @param TreeNode 一颗二叉树
+    * @return boolean 是否是对称的
+    */
+
+    // 以下给出TreeNode类, 请勿修改
+    static class TreeNode {
+     int val;
+     TreeNode left;
+     TreeNode right;
+     TreeNode(int x) { val = x; }
+    }
+
+    static String temp="";
+    public static boolean isTreeSymmetric(TreeNode root) {
+     //TODO your code goes here...
+    	
+    	TreeNode root1 = root;
+    	//求出镜像
+    	Mirror1(root1);
+    	//遍历对比
+    	String string = preOrderTraveral(root);
+    	temp = "";
+    	String string1 = preOrderTraveral(root1);
+    	return string.equals(string1);
+    }
+    /**
+     * 前序遍历
+     * @param root
+     * @return
+     */
+    public static String preOrderTraveral(TreeNode root){
+        if(root == null){
+            return temp;
+        }
+        temp +=root.val;
+        preOrderTraveral(root.left);
+        preOrderTraveral(root.left);
+        return temp;
+    }
+    /**
+     * 求镜像
+     * @param root
+     */
+    public static void Mirror1(TreeNode root) {
+        if(root != null) {
+            TreeNode temp = root.left;
+            root.left = root.right;
+            root.right = temp;
+            Mirror1(root.left);
+            Mirror1(root.right);
         }
     }
 }

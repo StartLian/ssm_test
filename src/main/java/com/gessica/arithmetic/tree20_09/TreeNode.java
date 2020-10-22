@@ -1,7 +1,11 @@
 package com.gessica.arithmetic.tree20_09;
 
 import java.util.LinkedList;
-
+/**
+ * 前、中、后遍历，层级遍历、求深度
+ * @author wanji
+ *
+ */
 public class TreeNode {
     public int data;
     public TreeNode leftChild;
