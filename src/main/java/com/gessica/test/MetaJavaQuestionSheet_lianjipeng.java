@@ -3,6 +3,7 @@ package com.gessica.test;
 /* 注意, 这里不要写包名. 留空 */
 /* 这里如果用到其他的类, 记得要引用, 否则编译不过 */
 import java.util.*;
+import java.util.Map.Entry;
 /**
 * 回答方式: 直接保存或者复制本java文件, 然后在原处作答. 建议重命名成 meta-java-<姓名>.java
 * 选择题改变量赋值的字符串
@@ -17,7 +18,9 @@ import java.util.*;
 * 可以改文件名, 建议改为 meta-java-<姓名>.java
 */
 import java.util.concurrent.ThreadPoolExecutor;
-class MetaJavaQuestionSheet {
+
+import com.gessica.test.MetaJavaQuestionSheet_lianjipeng.TreeNode;
+class MetaJavaQuestionSheet_lianjipeng {
  
 /* qn0: 
  只是样例! 不用改动
@@ -58,7 +61,7 @@ Quene q = new Queue(MaxSize);
 */
  public static String qn1 = null;
 /* qn2: 
- 下列代码的输出结果不可能是:B\C
+ 下列代码的输出结果不可能是:B
  private static volatile int s = 0;
  private static final ThreadPoolExecutor async = new ThreadPoolExecutor(
          0, Integer.MAX_VALUE,
@@ -93,7 +96,7 @@ Quene q = new Queue(MaxSize);
 */
  public static String qn3 = null;
 /* qn4: 
- 若进栈序列为a，b，c，d，e，f，进栈和出栈可以穿插进行，则不可能出现的出栈序列是()
+ 若进栈序列为a，b，c，d，e，f，进栈和出栈可以穿插进行，则不可能出现的出栈序列是(A)
  
  A. b，c，e，a，f，d
  
@@ -105,7 +108,7 @@ Quene q = new Queue(MaxSize);
 */
  public static String qn4 = null;
 /* qn5: 
- 下面代码会输出怎样的结果:
+ 下面代码会输出怎样的结果:B
  public class A {
 
      class Inner {
@@ -141,7 +144,7 @@ Quene q = new Queue(MaxSize);
 */
  public static String qn5 = null;
 /* qn6: 
- 下面代码会分别输出怎样的结果:
+ 下面代码会分别输出怎样的结果:A
    public static void main(String[] args) {
        Map<String, Object> map = new HashMap<>();
        String str = "没人比我更懂java";
@@ -180,7 +183,7 @@ Quene q = new Queue(MaxSize);
 */
  public static String qn6 = null;
 /* qn7: 
- 下面的代码在java(jdk8)最终会产生几个String对象:
+ 下面的代码在java(jdk8)最终会产生几个String对象:B
  String a = "没人";
  String b = "比我";
  String c = "更懂";
@@ -197,7 +200,7 @@ Quene q = new Queue(MaxSize);
 */
  public static String qn7 = null;
 /* qn8: 
- main()方法如下，try中可以捕获两种类型的异常，如果在该方法运行中产生了一个IOException，将会输出怎样的结果:
+ main()方法如下，try中可以捕获两种类型的异常，如果在该方法运行中产生了一个IOException，将会输出怎样的结果:A
    public static void main(String[] args) {
        System.out.print(method(0));
    }
@@ -227,7 +230,7 @@ Quene q = new Queue(MaxSize);
 */
  public static String qn8 = null;
 /* qn9: 
- "没人比我更懂java".toCharArray(), 在java(jdk8)中关于这个字符数组char[], 以下说法正确的是:
+ "没人比我更懂java".toCharArray(), 在java(jdk8)中关于这个字符数组char[], 以下说法正确的是:B
  
  A. 这个字符串在内存中总共占用 16 byte
  
@@ -239,7 +242,7 @@ Quene q = new Queue(MaxSize);
 */
  public static String qn9 = null;
 /* qn10: 
- 下面代码会分别输出怎样的结果:
+ 下面代码会分别输出怎样的结果:D
  String s = new String(new char[] {'没','人','比','我','更','懂','j','a','v','a'});
  String si = "没人比我更懂java";
  System.out.println(s == si);
@@ -256,7 +259,7 @@ Quene q = new Queue(MaxSize);
 */
  public static String qn10 = null;
 /* qn11: 
- 已知一个完全二叉树的第6层有3个叶子结点，则整个二叉树的结点数最多有
+ 已知一个完全二叉树的第6层有3个叶子结点，则整个二叉树的结点数最多有:A
  
  A. 34
  
@@ -268,7 +271,7 @@ Quene q = new Queue(MaxSize);
 */
  public static String qn11 = null;
 /* qn12: 
- 以下代码编译时哪一行会出错？
+ 以下代码编译时哪一行会出错？D
 
  1 package com.metaapp.solution;
  2 public class Solution {
@@ -296,7 +299,7 @@ Quene q = new Queue(MaxSize);
 */
  public static String qn12 = null;
 /* qn13: 
- 下面这段程序当n=10的输出是()
+ 下面这段程序当n=10的输出是(13)
 1 public int calc(int n) {
 2     try {
 3         n+=1;
@@ -324,7 +327,7 @@ Quene q = new Queue(MaxSize);
 */
  public static String qn13 = null;
 /* qn14: 
- method()方法如下，method()如果调用下面5个不同的update()方法，哪些SQL会被回滚 (多选):
+ method()方法如下，method()如果调用下面5个不同的update()方法，哪些SQL会被回滚 (多选):C\D\E
  @Service
  public class TestService {
      @Resource
@@ -380,7 +383,7 @@ Quene q = new Queue(MaxSize);
 */
  public static String qn14 = null;
 /* qn15: 
- 下面代码会分别输出怎样的结果:
+ 下面代码会分别输出怎样的结果:C
    public static void main(String[] args) {
        Thread t = new Thread() {
            public void run() {
@@ -420,7 +423,40 @@ Quene q = new Queue(MaxSize);
 */
 public static boolean searchMatrix(int[][] nums, int x) {
  // Todo your code goes here...
- return false;
+	if (nums[0][0]>x) {//起始值就大于X，
+		return false;
+	}
+	//先查看左上到右下对角线
+	int tempindex=0;
+	for (int i = 0; i < nums.length; i++) {
+		if (nums[i][i] == x) {
+			return true;
+		}
+		if (nums[i][i] > x) {
+			tempindex=i;
+			break;
+		}
+	}
+	//排除左上部分，不包含I行、列
+	//<=[i][i]轴中寻找
+	for (int j = tempindex; j < nums.length; j++) {
+		for (int k = j; k >0; k--) {
+			if (nums[k][j]==x) {//Y轴
+				return true;
+			}
+			if (nums[j][k]==x) {//X轴
+				return true;
+			}
+			if (nums[k][j]<x && nums[j][k]<x ) {//[j][j]轴上不存在
+				continue;
+			}
+			if (nums[0][j]>x && nums[j][0]>x) {//nums[0][j]，nums[j][0]起始值就大于X，
+				return false;
+			}
+		}
+	}
+	//没有
+	return false;
 }
 /**
 * 对任意一个Map<String, Object>, 其 key 为 String,
@@ -440,9 +476,52 @@ public static boolean searchMatrix(int[][] nums, int x) {
 * @param map 上述的 map
 * @return 所有的字符串
 */
+static int index = 0;
+static String[] vals=null;
+static String keytemp = "";
 public static Set<String> showMap(Map<String, Object> map) {
+	
  //TODO your code goes here...
- return null;
+	 Object value = null;
+	Set<String> set = new HashSet<>();
+	for (Map.Entry<String, Object> entry : map.entrySet()) {
+		 value = entry.getValue();
+		 keytemp = "";
+		 String[] strval = analysisValue(entry.getKey(),value);
+		 for (String string : strval) {
+			 set.add(string);
+		}
+	}
+ return set;
+}
+
+private static String[] analysisValue(String key,Object value) {
+	keytemp += key;
+	if ((value instanceof Integer) || (value instanceof String)) {
+		vals[index++]=keytemp+" = "+value;
+	}
+	if (value instanceof Map) {
+		Map<String, Object> map1 = (Map<String, Object>) value;
+		keytemp +=".";
+		for (Map.Entry<String, Object> entry : map1.entrySet()) {
+			 value = entry.getValue();
+			 analysisValue(entry.getKey(),value);
+		}
+	}
+	if (value instanceof Object[]) {
+		Object[] strs = (Object[]) value;
+		int i = 0;
+		for (i=0 ; i < strs.length; i++) {
+			if ((strs[i] instanceof Integer) || (strs[i] instanceof String)) {
+				keytemp +="[";
+				vals[index++]= keytemp+i+"] = "+strs[i];
+			}else {
+				keytemp +="["+i+"]";
+				analysisValue(key,strs[i]);
+			}
+		}
+	}
+	return vals;
 }
 /**
 * 给定一个二叉树, 检查它是否是镜像对称的
@@ -474,8 +553,35 @@ static class TreeNode {
  TreeNode(int x) { val = x; }
 }
 
+static String temp="";
 public static boolean isTreeSymmetric(TreeNode root) {
  //TODO your code goes here...
- return false;
+	
+	TreeNode root1 = root;
+	//求出镜像
+	Mirror1(root1);
+	//遍历对比
+	String string = preOrderTraveral(root);
+	temp = "";
+	String string1 = preOrderTraveral(root1);
+	return string.equals(string1);
+}
+public static String preOrderTraveral(TreeNode root){
+    if(root == null){
+        return temp;
+    }
+    temp +=root.val;
+    preOrderTraveral(root.left);
+    preOrderTraveral(root.left);
+    return temp;
+}
+public static void Mirror1(TreeNode root) {
+    if(root != null) {
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        Mirror1(root.left);
+        Mirror1(root.right);
+    }
 }
 }

@@ -3,7 +3,11 @@ package com.gessica.arithmetic.tree20_09;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
+/**
+ * 层级遍历、加层级行号遍历
+ * @author wanji
+ *
+ */
 public class PrintBinaryTree {
 	 /**
      * 层序遍历二叉树（每一行从左到右，整体上从上到下）
