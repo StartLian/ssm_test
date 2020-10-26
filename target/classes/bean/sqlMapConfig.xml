@@ -5,7 +5,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
        		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-       		<property name=".url" value="jdbc:mysql://localhost:3306/ssm"/>
+       		<property name=".url" value="jdbc:mysql://localhost:3306/chapter12"/>
 			<property name="username" value="root"/>
 			<property name="password" value="123456"/>
 			<!-- 连接池最大数据库连接数 -->
@@ -15,7 +15,8 @@
 			<!-- 最大等待毫秒数 -->
 			<property name="maxWait" value="10000"/>
        </bean>
-       <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+       <!-- JNDI连接 -->
+       <!-- <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
        		<property name="jndiName" value="java:comp/env/jdbc/ssmdb"></property>
-       </bean>
+       </bean> -->
 </beans>

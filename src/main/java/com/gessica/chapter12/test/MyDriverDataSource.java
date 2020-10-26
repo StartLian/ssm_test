@@ -1,8 +1,6 @@
-package com.gessica.chapter12;
+package com.gessica.chapter12.test;
 
-import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
-import org.springframework.jndi.JndiObjectFactoryBean;
 
 public class MyDriverDataSource {
 
@@ -10,6 +8,7 @@ public class MyDriverDataSource {
 		// TODO Auto-generated method stub
 //		SimpleDriverDataSource
 //		JndiObjectFactoryBean
+//		JdbcTemplate
 	}
 
 }
