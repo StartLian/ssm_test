@@ -6,6 +6,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import com.gessica.chapter12.mapper.RoleMapper;
@@ -18,6 +21,7 @@ public class TestMainSpringMybatis1 {
 		
 		RoleMapper roleMapper = context.getBean(RoleMapper.class);
 		Role role = new Role( "lianjipeng", "dashuagela");
+		
 		roleMapper.insertRole(role);
 		Long id = role.getId();
 		Role role2 = roleMapper.getRole(id);
@@ -27,6 +31,13 @@ public class TestMainSpringMybatis1 {
 //		roleMapper.deleteRole(id);
 //		DataSourceTransactionManager
 		
+	}
+	@Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,timeout = 3)
+	public int insertRole() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("chapter12_spring_mybatis.xml");
+		RoleMapper roleMapper = context.getBean(RoleMapper.class);
+		Role role = new Role( "lianjipeng", "dashuagela");
+		return roleMapper.insertRole(role);
 	}
 
 }
