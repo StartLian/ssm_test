@@ -33,5 +33,4 @@ public class Chapter5Main {
 		String str = (String) parseExpression.getValue();
 		log.info("str:"+str);
 	}
-
 }

@@ -8,14 +8,14 @@ import java.util.HashSet;
 /**
  * 字符串全部排序
  * @author wanji
- *
+ * @2020年10月26日上午11:09:14
  */
 public class StringSort {
 
 	public static void main(String[] args) {
 		StringSort stringSort = new StringSort();
 		ArrayList<String> permutation = stringSort.Permutation("ABCC");
-		for (String string : permutation) {
+ 		for (String string : permutation) {
 			System.out.print(string+" ");
 		}
 	}
