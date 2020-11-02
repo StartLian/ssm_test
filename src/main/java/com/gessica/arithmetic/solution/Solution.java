@@ -29,9 +29,10 @@ public  class Solution {
     }*/
 	public static void main(String[] agrs) {
 		int[] a= {2,4,0,0,0,0,0};
-		int[] b= {1,5,6,8,9};
+		int[] b= {1,2,4,5,6};
 		Solution solution = new Solution();
-		solution.merge(a, 2, b,5);
+//		solution.merge(a, 2, b,5);
+		solution.upper_bound_(5,3,b);
 	}
 	/**
 	 * 合并两个有序数组
@@ -91,6 +92,7 @@ public  class Solution {
 	}
 	/**
 	 * 二分查找
+	 * 输出在数组中第一个大于等于查找值的位置，如果数组中不存在这样的数，则输出数组长度加一。 
 	 * @param n
 	 * @param v
 	 * @param a
