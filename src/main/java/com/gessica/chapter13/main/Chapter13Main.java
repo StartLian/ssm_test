@@ -12,7 +12,7 @@ import com.gessica.chapter13.service.RoleListService;
 public class Chapter13Main {
 
 	public static void main(String[] args) {
-ApplicationContext context = new ClassPathXmlApplicationContext("chapter13_spring_mybatis.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("chapter13_spring_mybatis.xml");
 		
 		RoleListService roleListService = context.getBean(RoleListService.class);
 		List<Role> roleList = new ArrayList<Role>();
