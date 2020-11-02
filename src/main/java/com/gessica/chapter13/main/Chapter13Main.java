@@ -15,6 +15,7 @@ public class Chapter13Main {
 		ApplicationContext context = new ClassPathXmlApplicationContext("chapter13_spring_mybatis.xml");
 		
 		RoleListService roleListService = context.getBean(RoleListService.class);
+//		RoleService roleListService = context.getBean(RoleService.class);
 		List<Role> roleList = new ArrayList<Role>();
 		for (int i = 0; i < 2; i++) {
 			Role role = new Role("Role_name"+i, "role_note"+i);
