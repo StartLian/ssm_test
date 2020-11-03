@@ -24,12 +24,12 @@ public class JavaConfig implements TransactionManagementConfigurer{
 	 * 配置数据库
 	 * @return
 	 */
-	@Bean(name = "datasource")
+	@Bean(name = "dataSource")
 	public DataSource initDataSource() {
 		//...
 		return datasource;
 	}
-	@Bean(name = "datasource")
+	@Bean(name = "dataSource")
 	public JdbcTemplate initJdbcTemplate() {
 		//...
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
