@@ -25,15 +25,16 @@ public class RoleServiceImpl implements RoleService{
 		return roleMapper.insertRole(role);
 	}
 	@Override
+//	@Transactional(propagation = Propagation.REQUIRES_NEW ,isolation = Isolation.READ_COMMITTED)
 	@Transactional(propagation = Propagation.REQUIRED ,isolation = Isolation.READ_COMMITTED)
 	public int insertRoleList(List<Role> roleList) {
 		int count = 0;
 		for (Role role : roleList) {
 			//调用类自身方法，产生的自调用问题
-			insertRole(role);
+//			insertRole(role);
+			roleMapper.insertRole(role);
 			count++;
 		}
 		return count;
 	}
-
 }
