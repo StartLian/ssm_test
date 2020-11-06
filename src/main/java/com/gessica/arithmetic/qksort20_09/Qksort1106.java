@@ -3,8 +3,8 @@ package com.gessica.arithmetic.qksort20_09;
 public class Qksort1106 {
 
 	public static void main(String[] args) {
-		//"my__name___Is__dd"
-		//"dd__is___name__my"
+//		输入：“my_name____is__dd”
+//		输出：“dd_is____name__my” 
 		String str = "my__name___Is__dd";
 		char[] chars =new char[str.length()];
 		for(int i= 0; i<str.length();i++) {
@@ -24,6 +24,8 @@ public class Qksort1106 {
 		int j = high;
 		char tempchar = chars[low];
 		while(i<j) {
+			int a = 0;
+			int b = 0;
 			while(chars[i]=='_'&&i<j) {
 				i++;
 			}
