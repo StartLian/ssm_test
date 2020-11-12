@@ -1,4 +1,8 @@
 package com.gessica.arithmetic.solution;
+
+import java.util.LinkedList;
+import java.util.Stack;
+
 /**
  * 反转链表
  * @author wanji
@@ -9,7 +13,7 @@ public  class Solution {
 	 * 反转链表
 	 * @param agrs
 	 */
-	/*public ListNode ReverseList(ListNode head) {
+	public ListNode ReverseList(ListNode head) {
         //初始化pre指针，用于记录当前结点的前一个结点地址
         ListNode pre = null;
         //初始化p指针，用于记录当前结点的下一个结点地址
@@ -26,14 +30,60 @@ public  class Solution {
             head = p;
         }
         return pre;//当循环结束时,pre所指的就是反转链表的头结点
-    }*/
-	public static void main(String[] agrs) {
-		int[] a= {2,4,0,0,0,0,0};
-		int[] b= {1,2,4,5,6};
-		Solution solution = new Solution();
-//		solution.merge(a, 2, b,5);
-		solution.upper_bound_(5,3,b);
+    }
+	/**
+	 * 移除链表中指定值
+	 * @param head
+	 * @param val
+	 * @return
+	 */
+	public static ListNode removeTheVal(ListNode head,int val) {
+		if (head == null) {
+			return null;
+		}
+		Stack<ListNode> stack = new Stack<ListNode>();
+		while (head != null) {
+			if (head.val != val) {
+				stack.push(head);
+			}
+			head = head.next;
+		}
+		while (!stack.isEmpty()) {
+			stack.peek().next = head;
+			head= stack.pop();
+		}
+		return head;
 	}
+	/**
+	 * 构建链表
+	 * @param list
+	 * @return
+	 */
+	public static ListNode creatListNode(LinkedList<Integer> list) {
+		ListNode listNode =null;
+		while (!list.isEmpty()) {
+			Integer integer = list.pollFirst();
+			listNode=new ListNode(integer);
+			listNode.next =  creatListNode(list);
+		}
+		return listNode;
+	}
+	public static void main(String[] agrs) {
+//		int[] a= {2,4,0,0,0,0,0};
+//		int[] b= {1,2,4,5,6};
+//		Solution solution = new Solution();
+//		solution.merge(a, 2, b,5);
+//		int upper_bound_ = solution.upper_bound_(5,3,b);
+//		System.out.println("upper_bound_:"+upper_bound_);
+		//
+		LinkedList<Integer> linkedList = new LinkedList<Integer>();
+		linkedList.add(1);
+		linkedList.add(2);
+		linkedList.add(3);
+		ListNode listNode = creatListNode(linkedList);
+		removeTheVal(listNode,2);
+	}
+	
 	/**
 	 * 合并两个有序数组
 	 * @param nums1
@@ -98,24 +148,22 @@ public  class Solution {
 	 * @param a
 	 * @return
 	 */
-	public int upper_bound_ (int n, int v, int[] a) {
-        // write code here
-        int i =0;
-        int j=n-1;
-        int mid =(i+j)/2;
-        //右半部分
-        while(i<=j){
-            if(a[mid]<v){
-                i=mid+1;
-                mid =(i+j)/2;
-            }else if(mid>0&&a[mid-1]>=v){//左半部分
-                j=mid-1;
-                mid =(i+j)/2;
-            }else{
-                return mid+1;
-            }
-        }
-        return n+1;
+	public int upper_bound_ (int len, int targer, int[] a) {
+		int l= 0;
+		int h= len-1;
+		while (l<=h) {
+			int mid = (l+h)/2;
+			if (targer<a[mid]) {//在左边
+				h=mid-1;
+			}
+			if (targer>a[mid]) {//在右边
+				l=mid+1;
+			}
+			if (targer==a[mid]) {
+				return mid;
+			}
+		}
+		return len+1;
     }
 	/**
 	 * 链表中是否存在环
@@ -133,10 +181,38 @@ public  class Solution {
             p = p.next.next;
             q = q.next;
             if(p==q){
+            	
                 return true;
             }
  
         }
         return false;
     }
+	/**
+	 * 链表中环的大小
+	 * @param head
+	 * @return
+	 */
+	public int hasCycleSize(ListNode head) {
+		int index = 0;
+		if(head == null){
+			return 0;
+		}
+		ListNode p = head;
+		ListNode q = head;
+		while(p!=null && p.next!=null){
+			p = p.next.next;
+			q = q.next;
+			if(p==q){
+				while(q!=null){
+					q = q.next;
+					++index ;
+					if(p==q){
+						return index;
+					}
+				}
+			}
+		}
+		return 0;
+	}
 }

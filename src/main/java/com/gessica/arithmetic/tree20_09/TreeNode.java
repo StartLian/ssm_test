@@ -78,7 +78,7 @@ public class TreeNode {
      */
     public static void levelOrder(TreeNode root){
         LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
-        queue.peek();
+//        queue.peek();
         queue.add(root);
         while(!queue.isEmpty()){
             root = queue.pop();
