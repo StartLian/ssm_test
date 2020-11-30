@@ -68,4 +68,25 @@ public class StringSort {
         }
     }
 
+  /**
+   * 将字符串中的空格，替换成%20
+   * @2020年11月30日下午6:43:00
+   * @param @param str
+   * @param @return 参数
+   * @return String 返回类型
+   * @param str
+   * @return
+   */
+  public String replaceSpace(StringBuffer str) {
+	  StringBuffer sb = new StringBuffer();
+	  for(int i = 0;i<str.length();i++) {
+		  char c = str.charAt(i);
+		  if (c==' ') {
+			  sb.append("%20");
+			}else {
+				sb.append(c);
+			}
+	  }
+	  return sb.toString();
+  }
 }
