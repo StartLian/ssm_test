@@ -1,5 +1,6 @@
 package com.gessica.arithmetic.solution;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Stack;
 
@@ -187,6 +188,27 @@ public  class Solution {
  
         }
         return false;
+    }
+	/**
+	 * 倒序打印链表
+	 * @2020年11月30日下午6:45:33
+	 * @param @param listNode
+	 * @param @return 参数
+	 * @return ArrayList<Integer> 返回类型
+	 * @param listNode
+	 * @return
+	 */
+	public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+        Stack<ListNode> stack = new Stack<ListNode>();
+        while(listNode != null) {
+        	stack.push(listNode);
+        	listNode=listNode.next;
+        }
+        while(!stack.isEmpty()) {
+        	list.add(stack.pop().val);
+        }
+        return list;
     }
 	/**
 	 * 链表中环的大小

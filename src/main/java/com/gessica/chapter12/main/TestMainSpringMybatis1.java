@@ -30,7 +30,6 @@ public class TestMainSpringMybatis1 {
 		roleMapper.updateRole(role3);
 //		roleMapper.deleteRole(id);
 //		DataSourceTransactionManager
-		
 	}
 	@Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,timeout = 3)
 	public int insertRole() {
