@@ -2,7 +2,7 @@ package com.gessica.arithmetic.tree20_09_01;
 
 public class Main {
 	   public static void main(String[] args) {
-	        InitBiTree initBiTree = Tools.createBiTree();
+	        TreeNode initBiTree = Tools.createBiTree();
 	        System.out.println("——————先序遍历——————");
 	        Tools.preOrderTraverse(initBiTree);
 	        System.out.println();

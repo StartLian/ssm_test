@@ -11,8 +11,6 @@ import java.util.Scanner;
 public class LongestString {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		while(sc.hasNext()) {
 //			"1AB2345CD","12345EF"
 		    String str1 = "1AB2345CD";
 //		    String str1 = sc.nextLine();
@@ -22,8 +20,7 @@ public class LongestString {
 		    System.out.println("str2:"+str2);
 		    String r = LCS(str1, str2);
 		    System.out.println(r);
-		}
-		sc.close();
+		
 	}
 	public static String LCS(String str1, String str2){
 		if(str1.length() == 0 || str2.length() == 0){
@@ -33,7 +30,7 @@ public class LongestString {
 		char[] s2 = str2.toCharArray();
 		int endIndex = -1;
 		int max = 0;
-		 
+		                                                                       
 		int[][] arr = new int[s1.length][s2.length];
 		for (int i = 0; i < s1.length; i++) {
 		    for (int j = 0; j < s2.length; j++) {

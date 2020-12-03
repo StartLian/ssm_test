@@ -1,12 +1,12 @@
 package com.gessica.arithmetic.tree20_09_01;
 
-class InitBiTree{
+class TreeNode{
 
     private String data = null;
 
-    private InitBiTree lchild = null;
+    private TreeNode lchild = null;
 
-    private InitBiTree rchild = null;
+    private TreeNode rchild = null;
 
     public String getData() {
         return data;
@@ -16,19 +16,19 @@ class InitBiTree{
         this.data = data;
     }
 
-    public InitBiTree getLchild() {
+    public TreeNode getLchild() {
         return lchild;
     }
 
-    public void setLchild(InitBiTree lchild) {
+    public void setLchild(TreeNode lchild) {
         this.lchild = lchild;
     }
 
-    public InitBiTree getRchild() {
+    public TreeNode getRchild() {
         return rchild;
     }
 
-    public void setRchild(InitBiTree rchild) {
+    public void setRchild(TreeNode rchild) {
         this.rchild = rchild;
     }
 }
