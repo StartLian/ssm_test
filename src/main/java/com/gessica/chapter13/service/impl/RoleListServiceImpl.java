@@ -18,6 +18,7 @@ public class RoleListServiceImpl implements RoleListService{
 	@Autowired
 	private RoleService roleservice;
 	Logger log=Logger.getLogger(RoleListServiceImpl.class);
+	
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED ,isolation = Isolation.READ_COMMITTED)
 	public int insertRoleList(List<Role> roleList) {
