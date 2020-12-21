@@ -2,6 +2,7 @@ package com.gessica.arithmetic.array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 /**
  * int数组，不重复的三个数求和
@@ -55,5 +56,24 @@ public class MyArray {
             while (i + 1 < num.length - 2 && num[i+1] == num[i]) ++i;   // 防止重复
         }
         return res;
+    }
+	/**
+	 * 最长不重复
+	 * @param arr
+	 * @return
+	 */
+	public int maxLength (int[] arr) {
+        // write code here
+		int max = -1;
+		int left = -1;
+		HashMap<Integer,Integer> hashMap = new HashMap<Integer, Integer>();
+		for (int i = 0; i < arr.length; i++) {
+			if (hashMap.containsKey(arr[i])) {
+				left = Math.max(hashMap.get(arr[i]),left);
+			}
+			hashMap.put(arr[i],i);
+			max = Math.max(max, i-max);
+		}
+		return max;
     }
 }
