@@ -7,7 +7,7 @@ public class ReflectServiceImpl {
 	public ReflectServiceImpl getInstance(){
 		 ReflectServiceImpl object = null;
 		try {
-			object = (ReflectServiceImpl)Class.forName("com.gessica.service01.cglibproxy").newInstance();
+			object = (ReflectServiceImpl)Class.forName("com.gessica.service01.cglibproxy.ReflectServiceImpl").newInstance();
 		
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -17,7 +17,7 @@ public class ReflectServiceImpl {
 	public static void main(String[] args) {
 		ReflectServiceImpl reflectServiceImpl = new ReflectServiceImpl();
 		reflectServiceImpl.getInstance();
-
+		reflectServiceImpl.sayHello("jessica");
 	}
 
 }

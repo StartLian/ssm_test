@@ -51,12 +51,12 @@ public class InterceptorJdkProxy implements InvocationHandler {
 		return result;
 	}
 	public static void main(String[] args) {
-		HelloWord proxy = (HelloWord) InterceptorJdkProxy.bind(new HelloWordImpl(), "com.gessica.service01.jdkproxy.MyInterceptor");
-		proxy.sayHelloWord();
-//		HelloWord proxy1 = (HelloWord) InterceptorJdkProxy.bind(new HelloWordImpl(), "com.gessica.service01.test4.Interceptor1");
-//		HelloWord proxy2 = (HelloWord) InterceptorJdkProxy.bind(proxy1, "com.gessica.service01.test4.Interceptor2");
-//		HelloWord proxy3 = (HelloWord) InterceptorJdkProxy.bind(proxy2, "com.gessica.service01.test4.Interceptor3");
-//		proxy3.sayHelloWord();
+//		HelloWord proxy = (HelloWord) InterceptorJdkProxy.bind(new HelloWordImpl(), "com.gessica.service01.jdkproxy.MyInterceptor");
+//		proxy.sayHelloWord();
+		HelloWord proxy1 = (HelloWord) InterceptorJdkProxy.bind(new HelloWordImpl(), "com.gessica.service01.jdkproxy.Interceptor1");
+		HelloWord proxy2 = (HelloWord) InterceptorJdkProxy.bind(proxy1, "com.gessica.service01.jdkproxy.Interceptor2");
+		HelloWord proxy3 = (HelloWord) InterceptorJdkProxy.bind(proxy2, "com.gessica.service01.jdkproxy.Interceptor3");
+		proxy3.sayHelloWord();
 	}
 
 }
