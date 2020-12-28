@@ -3,7 +3,6 @@ package com.gessica.arithmetic.tree20_09_01;
 import java.util.LinkedList;
 import java.util.Stack;
 
-import com.gessica.arithmetic.tree20_09_01.Tools.TreeNode;
 
 
 /**

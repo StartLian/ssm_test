@@ -1,5 +1,7 @@
 package com.gessica.arithmetic.tree20_09_01;
 
+import com.gessica.arithmetic.tree20_09_01.Tools.TreeNode;
+
 public class Main {
 	   public static void main(String[] args) {
 	        TreeNode initBiTree = Tools.createBiTree();

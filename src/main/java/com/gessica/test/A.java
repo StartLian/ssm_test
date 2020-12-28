@@ -1,8 +1,8 @@
 package com.gessica.test;
 
 import java.lang.reflect.Constructor;
-
-import com.gessica.test.A.Inner;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class A {
 	class Inner {
@@ -26,6 +26,18 @@ public class A {
     }
     public static void main(String[] args) {
 
-        System.out.println(GetVal());
+//        System.out.println(GetVal());
+    	String stringToDate = getStringToDate("2020-12-08 14:55:10");
+    	System.out.println("stringToDate:"+stringToDate);
     }
+    public static String getStringToDate(String time) {
+		 SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		 Date date = new Date();
+		 try{
+			 date = sf.parse(time);
+		 } catch(Exception e) {
+		   System.out.println(e.toString());
+		 }
+		 return date.getTime()+"";
+	}
 }

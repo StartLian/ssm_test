@@ -1,15 +1,19 @@
 package com.gessica.arithmetic.heap;
 
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 public class TestHeapSort {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		 int []arr = {4,6,8,5,9};
+		 int []arr = {9,6,8,5,4};
 		buildBigHeap(arr);
 	}
 
 	private static void buildBigHeap(int[] arr) {
-		for (int i = arr.length/2-1; i >=0 ; i--) {
+		for (int i = arr.length/2-1; i >=0 ; i--) {//最右侧根节点 ，0，1，2，3，4，5，6--》2
 			adjustment(arr,i,arr.length);
 		}
 		System.out.println("大顶堆");
@@ -57,5 +61,5 @@ public class TestHeapSort {
 		
 	}
 	
-
+	
 }
