@@ -18,7 +18,9 @@ public class MyArray {
 		///*********************
 		int[] a = {1,2,3,4,2,5,6,8,9,3};
 		int maxLength = myArray.maxLength(a);
-		System.out.println("maxLength:"+maxLength);
+		System.out.println("maxLength:"+maxLength );
+		int[] twoSum = myArray.twoSum(a, 6);
+		System.out.println(twoSum[1]+" :"+twoSum[0]);
 	}
 	
 	
@@ -80,4 +82,75 @@ public class MyArray {
 		}
     	return max;
     }
+	/**
+	 * https://www.nowcoder.com/practice/7cd13986c79d4d3a8d928d490db5d707?tpId=188&&tqId=36898&rp=1&ru=/ta/job-code-high-week&qru=/ta/job-code-high-week/question-ranking
+	 * 给出一个转动过的有序数组，你事先不知道该数组转动了多少
+(例如,0 1 2 4 5 6 7可能变为4 5 6 7 0 1 2).
+在数组中搜索给出的目标值，如果能在数组中找到，返回它的索引，否则返回-1。
+假设数组中不存在重复项。
+	 * @author wanji
+	 * @data 2020年12月28日下午5:31:10
+	 * @des @param arr
+	 * @des @param target
+	 * @des @return
+	 */
+	public int search (int[] arr,int target) {
+        // write code here
+        int left = 0,right= arr.length-1;
+        while(left<=right) {
+        	int mid = left+(right-left)/2;
+        	if (arr[mid]==target) {
+				return mid;
+			}
+        	if (arr[mid]>=arr[left]) {
+				if (arr[mid]>target && target>=arr[left]) {
+					right =  mid -1;
+				}else {
+					left = mid +1;
+				}
+			}else {
+				if (arr[mid]<target && target <= arr[right]) {
+					left =mid +1;
+				}else {
+					right =mid-1;
+				}
+			}
+        }
+    	return -1;
+    }
+	/**
+	 * 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。
+
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
+
+你可以按任意顺序返回答案。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/two-sum
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+	 * @2021年1月5日上午9:54:26
+	 * @param @param nums
+	 * @param @param target
+	 * @param @return 参数
+	 * @return int[] 返回类型
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
+	public static int[] twoSum(int[] nums, int target) {
+		 int[] resList = new int[2];
+		HashMap<Integer,Integer> hashMap = new HashMap<Integer,Integer>();
+		for(int i = 0; i<nums.length;i++) {
+			int a =(target - nums[i]);
+			if (hashMap.containsKey(a)) {
+				Integer integer = hashMap.get(a);
+				resList[0]=integer; 
+	       		resList[1]=i; 
+	       		return resList;
+			}
+			hashMap.put(nums[i], i);
+		}
+       return resList;
+       
+   }
 }

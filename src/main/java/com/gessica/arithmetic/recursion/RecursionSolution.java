@@ -1,5 +1,9 @@
 package com.gessica.arithmetic.recursion;
-
+/**
+ * 递归
+ * @author wanji
+ * @2020年12月28日下午5:41:26
+ */
 public class RecursionSolution {
 
 	public static void main(String[] args) {

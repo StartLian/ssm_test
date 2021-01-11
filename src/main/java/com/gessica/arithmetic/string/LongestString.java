@@ -1,5 +1,7 @@
 package com.gessica.arithmetic.string;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -20,8 +22,20 @@ public class LongestString {
 		    System.out.println("str2:"+str2);
 		    String r = LCS(str1, str2);
 		    System.out.println(r);
-		
+		    int lengthOfLongestSubstring = lengthOfLongestSubstring("au");
+		    System.out.println("lengthOfLongestSubstring:"+lengthOfLongestSubstring);
 	}
+	/**
+	 * 两个字符串，求最长公众字符串
+	 * @2021年1月11日下午7:23:25
+	 * @param @param str1
+	 * @param @param str2
+	 * @param @return 参数
+	 * @return String 返回类型
+	 * @param str1
+	 * @param str2
+	 * @return
+	 */
 	public static String LCS(String str1, String str2){
 		if(str1.length() == 0 || str2.length() == 0){
 		    return "-1";
@@ -79,4 +93,33 @@ public class LongestString {
 		}
 		return endIndex==-1 ? "-1" : str1.substring(endIndex-max+1, endIndex+1);
 	}
+	/**
+	 * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+	 * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/submissions/
+	 * @2021年1月11日下午7:24:48
+	 * @param @param s
+	 * @param @return 参数
+	 * @return int 返回类型
+	 * @param s
+	 * @return
+	 */
+	public static int lengthOfLongestSubstring(String s) {
+		if (s.length() == 0) {
+			return 0;
+		}
+        char[] charArray = s.toCharArray();
+		HashMap<Character,Integer> hashMap = new HashMap<Character,Integer>();
+		int max = 1;
+		Integer pre = 0;
+		for (int i = 0; i < charArray.length; ++i) {
+			char c = charArray[i];
+			if (hashMap.containsKey(c)) {
+				pre = hashMap.get(c)>pre ? hashMap.get(c) :pre;
+			}
+            hashMap.put(c,i+1);
+			max = (i+1)-pre>max ? (i+1)-pre :max;
+			
+		}
+		return max; 
+    }
 }

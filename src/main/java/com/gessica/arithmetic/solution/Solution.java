@@ -11,6 +11,7 @@ import java.util.Stack;
  */
 public  class Solution {
 	/**
+	 * https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca?tpId=188&&tqId=36997&rp=1&ru=/activity/oj&qru=/ta/job-code-high-week/question-ranking
 	 * 反转链表
 	 * @param agrs
 	 */
