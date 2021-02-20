@@ -6,7 +6,7 @@ public class Solution {
 		// TODO Auto-generated method stub
 //		String addsum = addsum("12345612340000","1234");
 		String longestPalindrome = longestPalindrome("ababa");
-		System.out.println("longestPalindrome"+longestPalindrome);
+		System.out.println("longestPalindrome："+longestPalindrome);
 	}
 	public static String addsum(String s,String t) {
 		char[] charArray1 = s.toCharArray();
@@ -62,4 +62,26 @@ public class Solution {
         }
         return ans;
 	 }
+	//自测
+	public static String test(String s) {
+		int len = s.length();
+		String ans = "";
+		boolean[][] dp = new boolean[len][len];
+		for(int l= 0;l<len;++l) {
+			for(int i = 0;i+l<len;++i) {
+				int j= i+l;
+				if(l ==0) {
+					dp[i][j]= true;
+				}else if(l==1) {
+					dp[i][j] = (s.charAt(i)==s.charAt(j));
+				}else {
+					dp[i][j] = (s.charAt(i) == s.charAt(j) && dp[i+1][j-1]);
+				}
+				if (dp[i][j] && l+1 >ans.length()) {
+					ans =s.substring(i,i+l+1);
+				}
+			}
+		}
+		return ans;
+	}
 }
