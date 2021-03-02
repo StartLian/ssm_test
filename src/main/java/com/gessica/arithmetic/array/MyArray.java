@@ -68,7 +68,7 @@ public class MyArray {
      * @param arr int整型一维数组 the array
      * @return int整型
      */
-    public int maxLength (int[] arr) {
+    public int maxLength2 (int[] arr) {
         // write code here
         int max = 0 ,left =0;
         HashMap<Integer,Integer> hashMap = new HashMap<>();
@@ -81,6 +81,28 @@ public class MyArray {
 			max = Math.max(i-left, max);
 		}
     	return max;
+    }
+    public int maxLength (int[] arr) {
+        // write code here
+        int res = 0, left = -1;
+     //用来存放窗口存放过的数字
+     HashMap<Integer, Integer> windows = new HashMap<>();
+     //窗口不断往右移
+     for(int right = 0; right < arr.length; right++){
+         //根据题目，当遇到重复的数字时，缩小左侧窗口
+         if( windows.containsKey(arr[right])){
+             //因为我们有可能遇到索引比left原来还小的相同数字
+             //所以这里要进行比较，目的还是为了缩小左侧窗口，确保窗口内全是不重复的数字
+             left = Math.max(left, windows.get(arr[right]));
+         }
+         //更新窗口内数字的索引
+         windows.put(arr[right], right);
+         //right-left是窗口大小
+         //因为要找最长，所以要进行比较
+         res = Math.max(res, right-left);
+  
+     }
+     return res;
     }
 	/**
 	 * https://www.nowcoder.com/practice/7cd13986c79d4d3a8d928d490db5d707?tpId=188&&tqId=36898&rp=1&ru=/ta/job-code-high-week&qru=/ta/job-code-high-week/question-ranking
