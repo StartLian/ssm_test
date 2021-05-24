@@ -2,11 +2,15 @@ package com.gessica.arithmetic.art2021;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Stack;
+
+import com.gessica.arithmetic.solution.ListNode;
 
 /**
  * 三月份第一篇
  * 1.冒泡排序
  * 2.倒序字符串
+ * 3.两个栈实现队列
  * @author wanji
  * @2021年3月1日上午8:54:49
  */
@@ -17,8 +21,22 @@ public class Solution0301 {
 		
 //		String my_name____is__dd = changeStr("my_name____is__dd");
 		
-		 int[] nums = {4,5,1,6,2,7,3,8};
-	        GetLeastNumbers(nums,8);
+//		 int[] nums = {4,5,1,6,2,7,3,8};
+//	        GetLeastNumbers(nums,8);
+		
+//        setvalue(1);
+//        setvalue(3);
+//        System.out.printf(" "+getValue());
+//        setvalue(2);
+//        System.out.printf(" "+getValue());
+//        setvalue(5);
+//        setvalue(1);
+//        System.out.printf(" "+getValue());
+//        System.out.printf(" "+getValue());
+		
+		int[] a= {2,4};
+		int[] b= {1,2,4,5,6};
+		megerArrays(a, 2, b,5);
 	}
 	/**
 	 * //		输入：“my_name____is__dd”
@@ -175,4 +193,121 @@ public class Solution0301 {
 	        res[left] = res[index];
 	        res[index] = temp;
 	    }
+	    /**
+	     * 两个栈实现队列
+	     */
+	    private static Stack pushState = new Stack<Integer>();
+	    private static Stack pullState = new Stack<Integer>();
+	    public static  void setvalue(int value){
+	        pushState.push(value);
+	    }
+	    public static Integer getValue(){
+	        if (pullState.empty()){
+	            while(!pushState.empty()){
+	                Integer tempValue = (Integer) pushState.pop();
+//	                System.out.printf("tempValue:"+tempValue);
+	                pullState.push(tempValue);
+	            }
+	        }
+	        return (Integer) pullState.pop();
+	    }
+	  public ListNode reverseList(ListNode head) {
+		  ListNode pre =null;
+		  ListNode next = null;
+		  while(head != null) {
+			  next = head.next;
+			  
+			  head.next = pre;
+			  
+			  pre =head;
+			  
+			  head =next;
+		  }
+		  return pre;
+		  
+	  }
+	  /**
+	   * 反转链表
+	   * @2021年3月9日下午1:39:32
+	   * @param @param head
+	   * @param @return 参数
+	   * @return ListNode 返回类型
+	   * @param head
+	   * @return
+	   */
+	  public ListNode ReverseList(ListNode head) {
+	        ListNode pre =null;
+	        ListNode next =null;
+	        while(head !=null){
+	            //记录下一个接点
+	            next = head.next;
+	            //将head的下一个节点指向null
+	            head.next = pre;
+	            //当前节点指向带反转的节点
+	            pre = head;
+	            //head指向下一个节点
+	            head = next;
+	        }
+	        return pre;
+	    }
+	  /**
+	   * 移除链表指定节点
+	   * @2021年3月26日上午9:08:16
+	   * @param @param head
+	   * @param @param value
+	   * @param @return 参数
+	   * @return ListNode 返回类型
+	   * @param head
+	   * @param value
+	   * @return
+	   */
+	  public ListNode RemoveTheValue(ListNode head,int value) {
+		  Stack<ListNode> stack = new Stack();
+		  while(head != null) {
+ 			  if (head.val != value) {
+				  stack.push(head);
+			 }
+			  head =head.next;
+		  }
+		  while(!stack.isEmpty()) {
+			  stack.peek().next = head; //重点
+			  head.next =  stack.pop();
+		  }
+		  
+		  return head;
+	  }
+	  /**
+	   * 合并两个有序数组
+	   * @2021年3月26日上午9:15:05
+	   * @param @param arr1
+	   * @param @param len1
+	   * @param @param arr2
+	   * @param @param len2
+	   * @param @return 参数
+	   * @return int[] 返回类型
+	   * @param arr1
+	   * @param len1
+	   * @param arr2
+	   * @param len2
+	   * @return
+	   */
+	  public static int[] megerArrays(int[] arr1,int p1,int[] arr2,int p2) {
+		  int[] target = new int[p2+p1];
+		  int temp = target.length-1;
+		  int len1 = p1-1;
+		  int len2 = p2-1;
+		  while(len1>=0 && len2>=0) {
+			  target[temp--] = arr1[len1]>arr2[len2] ? arr1[len1--] : arr2[len2--];
+		  }
+		  if (len1>=0) {
+			  System.arraycopy(arr1, 0, target, 0, len1+1);
+		  }else {
+			  System.arraycopy(arr2, 0, target, 0, len2+1);
+		  }
+		  for (int i =0;i<target.length;i++) {
+			System.out.print(target[i]+",");
+		}
+		  return target;
+	  }
+	    
 }
