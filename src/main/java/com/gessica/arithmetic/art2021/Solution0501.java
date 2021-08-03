@@ -7,6 +7,9 @@ public class Solution0501 {
 	
 
 	public static void main(String[] args) {
+		for (String string : args) {
+			
+		}
 		//反转链表
 		/*LinkedList<Integer> linkedList = new LinkedList<>();
 		linkedList.add(2);

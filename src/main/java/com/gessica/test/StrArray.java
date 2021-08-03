@@ -9,7 +9,7 @@ public class StrArray {
 		
 		LinkedList<Integer> linkedList = new LinkedList<Integer>();
 		int temp = 1;
-		add(linkedList,temp);
+//		add(linkedList,temp);
 		
 	}
 
